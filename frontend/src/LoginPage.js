@@ -1,37 +1,69 @@
 import React from 'react';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 import {
-  MDBContainer,
-  MDBCol,
-  MDBRow,
   MDBBtn,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
   MDBInput,
-  MDBCheckbox
-} from 'mdb-react-ui-kit';
+  MDBIcon
+}
+from 'mdb-react-ui-kit';
+
 import './LoginPage.css';
-function LoginPage() {
-    return (
-        <MDBContainer fluid className="p-3 my-5 h-custom d-flex justify-content-center align-items-center" style={{ height: '70vh' }}>
-            <MDBRow className="w-100 d-flex justify-content-center">
-                <MDBCol col='4' md='6' className="bg-dark text-white p-4 rounded" style={{ maxWidth: '500px' }}>
-                    <h2 className="text-center mb-4">Login</h2>
-                    <MDBInput wrapperClass='mb-4' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" className="text-white"/>
-                    <MDBInput wrapperClass='mb-4' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" className="text-white"/>
 
-                    <div className="d-flex justify-content-between mb-4">
-                        <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-                        <a href="!#" className="text-white">Forgot password?</a>
-                    </div>
+function App() {
+return (
+    <MDBContainer fluid>
 
-                    <MDBBtn className="mb-4 w-100" size="lg">Sign in</MDBBtn>
+        <MDBRow className='d-flex justify-content-center align-items-center h-100'>
+            <MDBCol col='12'>
 
-                    <div className="text-center">
-                    <a href="#!" className="text-white">Not a member? Register</a>
-                    </div>
-                </MDBCol>
-            </MDBRow>
-        </MDBContainer>
-    );
+                <MDBCard className='bg-dark text-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
+                    <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
+
+                        <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                        <p className="text-white-50 mb-5">Please enter your login and password!</p>
+
+                        <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email' id='formControlLg' type='email' size="lg" style={{ backgroundColor: 'transparent', color: 'white' }}/>
+                        
+                        <MDBInput wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" style={{ backgroundColor: 'transparent', color: 'white' }}/>
+
+                        <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                        <MDBBtn outline className='mx-2 px-5' color='white' size='lg'>
+                            Login
+                        </MDBBtn>
+
+                        <div className='d-flex flex-row mt-3 mb-5'>
+                            <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
+                                <MDBIcon fab icon='facebook-f' size="lg"/>
+                            </MDBBtn>
+
+                            <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
+                                <MDBIcon fab icon='twitter' size="lg"/>
+                            </MDBBtn>
+
+                            <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
+                                <MDBIcon fab icon='google' size="lg"/>
+                            </MDBBtn>
+                        </div>
+
+                        <div>
+                            <p className="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+
+                        </div>
+                    </MDBCardBody>
+                </MDBCard>
+
+            </MDBCol>
+        </MDBRow>
+
+    </MDBContainer>
+);
 }
 
-
-export default LoginPage;
+export default App;
