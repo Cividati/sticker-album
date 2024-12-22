@@ -1,6 +1,14 @@
-const express = require('express'); // Importing express
+import express from 'express'; // Importing express
+import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+import wiki from './routes/wiki.js'; // Importing the wiki route module
+
+dotenv.config(); // Load environment variables from .env file
+
 const app = express(); // Creating an express app
-const wiki = require('./routes/wiki'); // Importing the wiki route module
+
+const client = new MongoClient(process.env.MONGO_URI);
+await client.connect();
 
 // Use the wiki route module when requests are made to the /wiki path
 app.use('/wiki', wiki);
